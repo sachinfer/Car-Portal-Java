@@ -1,4 +1,5 @@
 # ABC-Cars-Portal
+
 A website application that offers a marketplace for buying and selling used
 cars. It allows users to browse a wide selection of pre-owned vehicles and
 place bids on cars they are interested in, providing them with the potential to
@@ -7,10 +8,12 @@ purchase a vehicle at a lower price.
 ## Project Overview
 
 **There are 2 types of users in this Used Cars Sales portal. They are**
+
 1.  Users
 2.  Administrator
 
 **Users should be able to perform following functions in the portal**
+
 1.  Register in the Portal
 2.  Login to the Portal
 3.  Post a Car for Sale along with Picture upload
@@ -21,6 +24,7 @@ purchase a vehicle at a lower price.
 
 **Administrators should be able to perform the following functions in the
 portal**
+
 1.  Register in the Portal
 2.  Login to the portal
 3.  View List of Registered Users
@@ -28,9 +32,10 @@ portal**
 5.  Activate / Deactivate a Car post
 6.  Update their profile
 7.  Approve or deny the users appointment based on the bidding
-8.  Transact the sales if price is right 
+8.  Transact the sales if price is right
 
 **Both Users & Administrator**
+
 1.  Visit Home Page
 2.  View Car Listing
 3.  Search for a Car by Make, Model, Registration Year & Price Range
@@ -69,8 +74,6 @@ spring.datasource.password=<YOUR_DB_PASSWORD>
 <img src="./images/login.png" alt="login" width="50%"/>
 <p>Profile page</p>
 <img src="./images/profile.png" alt="profile" width="50%"/>
-<p>Edit Profile</p>
-<img src="./images/edit-profile.png" alt="edit_profile" width="50%"/>
 <p>Cars Page</p>
 <img src="./images/cars.png" alt="cars" width="50%"/>
 <p>Car Detail Page</p>
