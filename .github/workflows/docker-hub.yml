@@ -14,7 +14,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Step 2: Set up Docker Buildx (for multi-platform builds)
       - name: Set up Docker Buildx
@@ -27,24 +27,24 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Step 4: Get short commit SHA using shell command
+      # Step 4: Get short commit SHA
       - name: Get short commit SHA
         id: short_sha
-        run: echo "SHORT_SHA=$(echo $GITHUB_SHA | head -c 8)" >> $GITHUB_ENV
+        run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-8)" >> $GITHUB_ENV
 
-      # Step 5: Get the current date in UTC format (formatted as YYYY-MM-DD)
-      - name: Get date
+      # Step 5: Get current date (YYYY-MM-DD)
+      - name: Get current date
         id: date_time
         run: echo "DATE_TIME=$(date -u +'%Y-%m-%d')" >> $GITHUB_ENV
 
-      # Step 6: Get the current time in UTC format (formatted as HH-MM-SS)
-      - name: Get time
+      # Step 6: Get current time (HH-MM-SS)
+      - name: Get current time
         id: current_time
         run: echo "TIME=$(date -u +'%H-%M-%S')" >> $GITHUB_ENV
 
-      # Step 7: Build and push Docker image with dynamic tags (date and time)
+      # Step 7: Build and push Docker image with dynamic tags
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: .
           push: true
