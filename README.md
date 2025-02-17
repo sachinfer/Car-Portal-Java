@@ -58,11 +58,13 @@ mysql> create database abc_cars
 
 3. **Setup application.properties**
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/abc_cars
-spring.datasource.username=<YOUR_DB_USERNAME>
-spring.datasource.password=<YOUR_DB_PASSWORD>
-```
+spring.datasource.url=jdbc:mysql://mysql:3306/abc_cars
+spring.datasource.username=abc_user
+spring.datasource.password=abc_pass
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
+
 
 4. **Run Java Application and open [http://localhost:8080](http://localhost:8080)**
 

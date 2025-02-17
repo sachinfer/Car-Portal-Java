@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: abc_cars_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: abc_cars
+      MYSQL_USER: abc_user
+      MYSQL_PASSWORD: abc_pass
+    ports:
+      - "3306:3306"
+    networks:
+      - abc_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent"]
+      interval: 30s
+      retries: 5
+      start_period: 10s
+      timeout: 10s
+
+  app:
+    build: .
+    container_name: abc_cars_app
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/abc_cars
+      SPRING_DATASOURCE_USERNAME: abc_user
+      SPRING_DATASOURCE_PASSWORD: abc_pass
+    ports:
+      - "8080:8080"
+    networks:
+      - abc_network
+
+networks:
+  abc_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
