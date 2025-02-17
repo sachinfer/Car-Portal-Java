@@ -49,7 +49,7 @@ jobs:
           context: .
           push: true
           tags: |
-            car_portal:latest
-            car_portal:${{ github.ref_name }}
-            car_portal:${{ env.SHORT_SHA }}
-            car_portal:${{ github.ref_name }}-${{ env.DATE_TIME }}-${{ env.TIME }}
+            sachinfe/car_portal:latest
+            sachinfe/car_portal:${{ github.ref_name }}
+            sachinfe/car_portal:${{ env.SHORT_SHA }}
+            sachinfe/car_portal:${{ github.ref_name }}-${{ env.DATE_TIME }}-${{ env.TIME }}
